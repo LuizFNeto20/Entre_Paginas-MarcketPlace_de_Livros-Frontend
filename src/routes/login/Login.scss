@@ -1,0 +1,109 @@
+@use '../../assets/sass/cores' as *;
+
+.login {
+    width: 100%;
+    height: 68.45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+
+    &__logo {
+        position: absolute;
+        width: 250px;
+        top: -25px;
+    }
+
+    &__form {
+        width: 35%;
+        height: 40%;
+        margin: 0 auto;
+        border: 1px solid $azul-logo;
+        border-radius: 10px 10px 0 0;
+
+        form {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
+
+            input {
+                margin: 0 auto;
+                width: 90%;
+                height: 12%;
+                padding: 0 0 0 2%;
+                border-radius: 6px;
+                outline: none;
+                border: 1px solid $gray;
+                z-index: 1;
+            }
+
+            input:focus {
+                border: 1px solid $header-background;
+            }
+
+            label {
+                margin: 3% 0 3% 5%;
+                letter-spacing: 2px;
+                font-weight: 500;
+            }
+
+            button {
+                text-align: center;
+                color: $black;
+                width: 40%;
+                height: 15%;
+                border-radius: 4px;
+                font-weight: 700;
+                cursor: pointer;
+                border: 1px solid $azul-logo;
+                background-color: $white;
+                margin: 7% 0 0 30%;
+                transition: 0.5s;
+            }
+
+            button:hover {
+                background-color: $header-background;
+            }
+        }
+    }
+
+    &__cadastrar {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        margin: 0 auto;
+        width: 35%;
+        height: 10%;
+        border-bottom: 1px solid $azul-logo;
+        border-right: 1px solid $azul-logo;
+        border-left: 1px solid $azul-logo;
+        border-radius: 0 0 10px 10px;
+        background-color: rgba($color: $azul-logo, $alpha: 0.3);
+        font-size: 12px;
+
+        a {
+            display: block;
+            padding-top: 1.3%;
+            box-sizing: border-box;
+            text-align: center;
+            text-decoration: none;
+            color: $black;
+            width: 30%;
+            height: 50%;
+            border-radius: 4px;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            margin: 0 2%;
+            transition: 0.5s;
+            border: 1px solid $azul-logo;
+            background-color: transparent;
+        }
+
+        a:hover {
+            background-color: $header-background;
+        }
+    }
+}

@@ -1,0 +1,36 @@
+@use '../../assets/sass/cores' as *;
+
+.search {
+    width: 50%;
+    margin-left: 15%;
+
+    form {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    &_input {
+        width: 70%;
+        height: 50%;
+        border-radius: 20px 0 0 20px;
+        border: none;
+        padding: 0 0 0 4%;
+
+        outline: none;
+    }
+
+    &_input::placeholder {
+        color: $black;
+    }
+
+    &_button {
+        width: 13%;
+        height: 50%;
+        border-radius: 0 20px 20px 0;
+        cursor: pointer;
+        border: none;
+    }
+
+}
