@@ -43,7 +43,7 @@ export default function ModalCategoria() {
             <ul className='modal-categoria__list'>
                 {
                     categorias.map((categoria: any, index: number) => (
-                        <li key={index + 1}><a href="#">{addEspaço(categoria)}</a></li>
+                        <li key={index + 1}><a href="#" className='modal-categoria__link'>{addEspaço(categoria)}</a></li>
                     ))
                 }
             </ul>

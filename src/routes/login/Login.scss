@@ -19,7 +19,7 @@
         width: 35%;
         height: 40%;
         margin: 0 auto;
-        border: 1px solid $azul-logo;
+        box-shadow: 1px 1px 4px #ccc;
         border-radius: 10px 10px 0 0;
 
         form {
@@ -76,34 +76,21 @@
         margin: 0 auto;
         width: 35%;
         height: 10%;
-        border-bottom: 1px solid $azul-logo;
-        border-right: 1px solid $azul-logo;
-        border-left: 1px solid $azul-logo;
+        box-shadow: 1px 1px 4px #ccc;
         border-radius: 0 0 10px 10px;
         background-color: rgba($color: $azul-logo, $alpha: 0.3);
         font-size: 12px;
 
         a {
-            display: block;
-            padding-top: 1.3%;
-            box-sizing: border-box;
-            text-align: center;
             text-decoration: none;
             color: $black;
-            width: 30%;
-            height: 50%;
-            border-radius: 4px;
             font-weight: 700;
-            cursor: pointer;
-            border: none;
             margin: 0 2%;
             transition: 0.5s;
-            border: 1px solid $azul-logo;
-            background-color: transparent;
         }
 
         a:hover {
-            background-color: $header-background;
+            color: $azul-logo;
         }
     }
 }
