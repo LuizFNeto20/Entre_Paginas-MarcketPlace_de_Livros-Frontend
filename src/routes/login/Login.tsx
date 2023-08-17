@@ -1,7 +1,7 @@
 import './Login.scss';
 import { Link } from 'react-router-dom';
-import  api  from '../../hooks/Data';
-import { useEffect, useState } from 'react';
+import api from '../../hooks/Data';
+import { SyntheticEvent, useState } from 'react';
 
 import logo from '../../assets/images/logo.png'
 import Header from '../../components/header/Header';
@@ -10,47 +10,20 @@ import Footer from '../../components/footer/Footer';
 export default function Login() {
 
     const [login, setLogin] = useState('');
-    const [password, setPassword] = useState('');
+    const [senha, setSenha] = useState('');
 
-    const getPosts = async () => {
+    const handleSubmit = async (event: SyntheticEvent) => {
+        event.preventDefault();
+
         try {
-            const response = await api.get("/api/categorias")
-            console.log(response.data);
+            const response = await api.post('/api/auth/login', { login, senha });
+            console.log('Usuario salvo:', response.data);
         } catch (error) {
-            console.log(error);
+            console.error('Erro ao salvar projeto:', error);
         }
+
+        window.location.href = '/login';
     }
-
-    useEffect(() => {
-        getPosts();
-    }, [])
-
-    // const handleSubmit = (event: any) => {
-    //     event.preventDefault();
-
-    //     const data = {
-    //         login: login,
-    //         password: password
-    //     }
-
-    //     axios.post('http://localhost:8080/login', data)
-    //         .then(response => {
-    //             console.log(response.data);
-    //         })
-    //         .catch(error => {
-    //             console.log(error);
-    //         });
-    // }
-
-    // const handleLoginChange = (event: any) => {
-    //     setLogin(event.target.value);
-    // }
-
-    // const handlePasswordChange = (event: any) => {
-    //     setPassword(event.target.value);
-    // }
-
-    // const handleSubmitLogin = (event: any) => {
 
     return (
         <>
@@ -58,11 +31,11 @@ export default function Login() {
             <div className="login">
                 <img src={logo} className='login__logo' alt="Imagem do logo no login" />
                 <div className='login__form'>
-                    <form action="#" method='post'>
+                    <form onSubmit={handleSubmit} method='post'>
                         <label htmlFor="login">Login</label>
-                        <input type="text" name="login" placeholder='Login' />
-                        <label htmlFor="password">Senha</label>
-                        <input type="password" name="password" placeholder='Senha' />
+                        <input type="text" name="login" placeholder='Login' onChange={(e) => setLogin(e.target.value)} required value={login} />
+                        <label htmlFor="senha">Senha</label>
+                        <input type="password" name="senha" placeholder='Senha' onChange={(e) => setSenha(e.target.value)} required value={senha} />
                         <button type='submit' name='submit'>Entrar</button>
                     </form>
                 </div>
