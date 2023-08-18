@@ -32,7 +32,6 @@ export default function Login() {
         } catch (error) {
             console.error('Erro ao salvar projeto:', error);
         }
-
     }
 
     return (

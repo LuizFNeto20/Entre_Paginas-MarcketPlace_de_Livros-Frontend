@@ -2,13 +2,15 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import { FaCartShopping, FaCircleUser } from 'react-icons/fa6'
+import { useSelector } from 'react-redux'
 import logo from '../../assets/images/logo.png'
+import Nav from '../nav/Nav'
 import Search from '../search/Search'
 import './Header.scss'
-import Nav from '../nav/Nav'
 
 export default function Header() {
 
+    const isLoggedIn = useSelector((state: any) => state.user);
     const [modalVisible, setModalVisible] = useState(false);
 
     function aparecerModal() {
@@ -24,12 +26,12 @@ export default function Header() {
 
                 <Search></Search>
 
+
                 <div className='header-menu__icons'>
-                    <button className='header-menu__cart'><FaCartShopping />
-                        <span className='header-menu__cart-count'>0</span>
-                    </button>
+                    <button className='header-menu__cart'>Meu carrinho</button>
                     <button className='header-menu__user' onClick={aparecerModal}><FaCircleUser /></button>
                 </div>
+                
             </header>
 
             <Nav></Nav>

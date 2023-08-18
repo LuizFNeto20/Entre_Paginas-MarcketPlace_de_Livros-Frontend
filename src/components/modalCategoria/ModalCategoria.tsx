@@ -9,7 +9,6 @@ export default function ModalCategoria() {
     const getPosts = async () => {
         try {
             const response = await api.get("/api/categorias")
-            console.log(response.data);
             setCategorias(response.data);
         } catch (error) {
             console.log(error);

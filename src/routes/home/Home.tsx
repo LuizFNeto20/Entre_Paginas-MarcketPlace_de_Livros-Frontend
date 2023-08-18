@@ -4,17 +4,14 @@ import Footer from '../../components/footer/Footer';
 import LivroVenda from '../../components/livrosvenda/LivroVenda';
 import LivroTroca from '../../components/livrostroca/LivroTroca';
 import { useSelector } from 'react-redux';
-import { selectUser } from '../../redux/userSlice';
 
 export default function Home() {
+  const isLoggedIn = useSelector((state: any) => state.user);
 
-  const opa = useSelector(selectUser);
-
-  console.log(opa);
-
+  console.log(isLoggedIn)
   return (
     <>
-      <Header></Header>
+      {isLoggedIn && <Header></Header>}
       <LivroVenda></LivroVenda>
       <LivroTroca></LivroTroca>
       <Footer></Footer>
