@@ -21,7 +21,6 @@
         height: 100%;
         margin-left: 1%;
         display: flex;
-        justify-content: space-around;
         padding-top: 3px;
     }
 
@@ -35,6 +34,16 @@
         cursor: pointer;
     }
 
+    a[class=header-menu__cart ] {
+        text-decoration: none;
+        display: block;
+        margin: auto 47% auto 0;
+    }
+
+    &__user-container {
+        display: flex;
+    }
+
     &__user {
         background-color: transparent;
         border: none;
@@ -43,23 +52,43 @@
         cursor: pointer;
     }
 
-    button:hover {
+    .message {
+        font-size: 25px;
+        margin: auto 20% auto 0;
+    }
+
+    &__cart:hover {
         opacity: 0.9;
     }
+}
+
+
+.modal-super {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    cursor: pointer;
 }
 
 .modal {
     width: 13%;
     background-color: $white;
-    border: 1px solid $modal-border;
+    box-shadow: -1px 0px 16px 4px rgba(0, 0, 0, 0.021);
     text-align: center;
     z-index: 999;
     position: absolute;
-    right: 25px;
-    top: 68px;
+    right: 3%;
+    top: 7.5%;
+    transition: 1s;
 
     ul {
         list-style: none;
+    }
+
+    &__item:first-child {
+        border-bottom: 1px solid $black;
     }
 
     &__item:hover {
@@ -74,4 +103,5 @@
         color: $black;
         font-size: 13px;
     }
+
 }
