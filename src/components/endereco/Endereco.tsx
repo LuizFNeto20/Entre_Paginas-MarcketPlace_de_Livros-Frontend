@@ -1,21 +1,20 @@
 import { SyntheticEvent } from 'react';
 import { FaXmark } from 'react-icons/fa6';
 import api from '../../hooks/Data';
-import './Contato.scss';
+import './Endereco.scss';
 
-interface ContatoProps {
+interface EnderecoProps {
     index: number;
-    contato: any;
+    endereco: any;
 }
-
-export default function Contato({ index, contato }: ContatoProps) {
+export default function Endereco({ index, endereco }: EnderecoProps) {
 
     const handleDelete = async (event: SyntheticEvent) => {
         event.preventDefault();
 
         try {
-            const response = await api.delete(`/api/contatos/${contato.id}`);
-            console.log('Contato Deletado:', response.data);
+            const response = await api.delete(`/api/enderecos/${endereco.id}`);
+            console.log('Endereço deletado:', response.data);
         } catch (error) {
             console.error('Erro ao salvar projeto:', error);
         }
@@ -23,11 +22,11 @@ export default function Contato({ index, contato }: ContatoProps) {
 
     return (
         <div className='perfil-right__card'>
-            <div className='perfil-right__card-contato'>
-                <h3>Contato {index + 1}</h3>
-                <p>telefone: <span>{contato.telefone}</span></p>
+            <div className='perfil-right__card-endereco'>
+                <h3>Endereço {index + 1} 1</h3>
+                {/* <p>telefone: <span>{endereco.telefone}</span></p> */}
             </div>
             <button onClick={handleDelete} className='perfil-right__card-close'><FaXmark></FaXmark></button>
         </div>
-    );
+    )
 }
