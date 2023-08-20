@@ -68,14 +68,11 @@ export default function Header() {
                         return (
                             isLoggedIn.isLoggedIn
                                 ?
-                                <div className='modal-super' onClick={() => { setModalVisible(!modalVisible) }}>
-                                    <div className='modal' key={index}>
+                                <div className='modal-super' key={index} onClick={() => { setModalVisible(!modalVisible) }}>
+                                    <div className='modal'>
                                         <ul>
                                             <li className='modal__item'>
-                                                <a href="#">{item.login}</a>
-                                            </li>
-                                            <li className='modal__item'>
-                                                <Link to="/perfil">Perfil</Link>
+                                                <Link to="/perfil">{isLoggedIn.login === item.login ? item.login : "Perfil"}</Link>
                                             </li>
                                             <li className='modal__item'>
                                                 <a href="#">Procurar usuários</a>
