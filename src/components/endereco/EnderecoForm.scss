@@ -1,1 +1,53 @@
 @use '../../assets/sass/cores' as *;
+
+.endereco-form {
+    padding: 2%;
+    box-shadow: -1px 0px 12px 4px rgba(0, 0, 0, 0.1);
+    margin: 2% 0 0 0;
+
+    h3 {
+        font-size: 20px;
+        margin-bottom: 2%;
+    }
+
+    form {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        grid-gap: 5%;
+    }
+
+    &__input {
+        display: flex;
+        flex-direction: column;
+
+        label {
+            font-size: 13px;
+            margin: 0 0 3% 0;
+        }
+
+        input {
+            border: solid 1px $gray;
+            outline: none;
+            padding: 3%;
+        }
+    }
+
+    button {
+        text-align: center;
+        color: $black;
+        text-decoration: none;
+        padding: 0.6%;
+        border: 1px solid $header-background;
+        background-color: transparent;
+        cursor: pointer;
+        transition: 0.36s;
+        grid-row: 4;
+        grid-column: 2;
+        margin-bottom: 2%;
+    }
+
+    button:hover {
+        background-color: $header-background;
+    }
+}
