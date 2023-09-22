@@ -26,12 +26,12 @@ export default function Login() {
             const response = await api.post('/api/auth/login', { login, senha });
             console.log('Usuario salvo:', response.data);
 
-            dispatch(changeLogin(login));
-
             navigate('/');
         } catch (error) {
             console.error('Erro ao salvar projeto:', error);
         }
+
+        navigate('/');
     }
 
     return (

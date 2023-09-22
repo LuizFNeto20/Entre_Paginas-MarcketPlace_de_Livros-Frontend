@@ -2,12 +2,15 @@ import { useEffect, useState } from 'react';
 import './Nav.scss'
 import { FiMenu } from 'react-icons/fi'
 import api from '../../hooks/Data';
+import { useSelector } from 'react-redux';
 
 export default function Nav() {
 
     const [modalVisible, setModalVisible] = useState(false);
 
     const [categorias, setCategorias] = useState([]);
+
+    const isLoggedIn = useSelector((state: any) => state.user);
 
     const getPosts = async () => {
         try {
@@ -22,20 +25,10 @@ export default function Nav() {
         getPosts();
     }, [])
 
-    function addEspaço(categoria: string) {
+    function addEspaço(palavra: string) {
         let palavraFinal = "";
 
-        for (let i = 0; i < categoria.length; i++) {
-            const char = categoria[i];
-            const prevChar = categoria[i - 1];
-
-            if (i > 0 && i < categoria.length && char === char.toUpperCase() && prevChar !== " ") {
-                palavraFinal += " " + char;
-            }
-            else {
-                palavraFinal += char;
-            }
-        }
+        palavraFinal = palavra.replace(/_/g, " ");
 
         return palavraFinal;
     }
@@ -47,6 +40,15 @@ export default function Nav() {
                     <li onClick={() => { setModalVisible(!modalVisible) }}>
                         <span><FiMenu /></span>
                         Categorias
+                    </li>
+                    {
+                        isLoggedIn.isLoggedIn && <li>Livros desejados</li>
+                    }
+                    {
+                        isLoggedIn.isLoggedIn && <li>Ofertas para minha região</li>
+                    }
+                    <li>
+
                     </li>
                 </ul>
             </nav>

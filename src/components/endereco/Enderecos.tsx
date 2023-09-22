@@ -3,12 +3,13 @@ import Endereco from "./Endereco";
 import { useSelector } from "react-redux";
 import { useState, useEffect } from 'react';
 import EnderecoForm from "./EnderecoForm";
+import api from "../../hooks/Data";
 
-/*interface Usuario {
+interface Usuario {
     id: string;
     login: string;
-    enderecos: Array<{ telefone: string }>
-}*/
+    addressDtos: any
+}
 
 interface state {
     user: {
@@ -17,11 +18,21 @@ interface state {
     };
 }
 
+interface Endereco {
+    bairro: string,
+    cep: string,
+    complemento: string,
+    id: string,
+    localidade: string,
+    logradouro: string,
+    pais: string,
+    uf: string,
+}
+
 export default function Enderecos() {
     const isLoggedIn = useSelector((state: state) => state.user);
-    // const [enderecos, setEnderecos] = useState<Array<{ telefone: string }>>([]);
-    const [novo, setNovo] = useState(false);
-    // const [usuarios, setUsuarios] = useState<Usuario[]>([]);
+    const [enderecos, setEnderecos] = useState<Array<{ endereco: string }>>([]);
+    const [usuarios, setUsuarios] = useState<Usuario[]>([]);
     const [idUsuario, setIdUsuario] = useState<string | null>(null);
     const [divs, setDivs] = useState<JSX.Element[]>([]);
 
@@ -29,19 +40,38 @@ export default function Enderecos() {
         setDivs([...divs, <div key={divs.length}><EnderecoForm idUsuario={idUsuario} /></div>]);
     }
 
-    // const getContatosUsuarioLogado = (usuario: Usuario) => {
-    //     setEnderecos(usuario.contatos.map((contato) => contato));
-    //     setNovo(true);
-    // };
+    const getContatosEnderecosLogado = (usuario: Usuario) => {
+        setEnderecos(usuario.addressDtos.map((endereco: Endereco) => endereco));
+    };
+
+    const getPosts = async () => {
+        try {
+            const response = await api.get("/api/usuarios/list");
+            setUsuarios(response.data); 
+
+            const usuarioLogado = response.data.find((usuario: Usuario) => usuario.login === isLoggedIn.login);
+            if (usuarioLogado) {
+                setIdUsuario(usuarioLogado.id);
+                getContatosEnderecosLogado(usuarioLogado);
+            }
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    useEffect(() => {
+        getPosts();
+    }, [])
 
     return (
         <div className='endereco'>
             {
-                // enderecos.map((endereco, index) => (
-                //     <div key={index}>
-                //         <Endereco index={index} endereco={endereco}></Endereco>
-                //     </div>
-                // ))
+                enderecos.map((endereco, index) => (
+                    <div key={index}>
+                        <Endereco index={index} endereco={endereco}></Endereco>
+                    </div>
+                ))
             }
 
             {

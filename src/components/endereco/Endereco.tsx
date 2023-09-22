@@ -18,13 +18,23 @@ export default function Endereco({ index, endereco }: EnderecoProps) {
         } catch (error) {
             console.error('Erro ao salvar projeto:', error);
         }
+        window.location.reload();
     };
 
     return (
         <div className='perfil-right__card'>
             <div className='perfil-right__card-endereco'>
-                <h3>Endereço {index + 1} 1</h3>
-                {/* <p>telefone: <span>{endereco.telefone}</span></p> */}
+                <h3>Endereço {index + 1}</h3>
+                <p>
+
+                    cep: {endereco.cep}<br/>
+                    bairro: {endereco.bairro}<br/>
+                    localidade: {endereco.localidade}<br/>
+                    logradouro: {endereco.logradouro}<br/>
+                    pais: {endereco.pais}<br/>
+                    uf: {endereco.uf}<br/>
+                    complemento: {endereco.complemento}
+                </p>
             </div>
             <button onClick={handleDelete} className='perfil-right__card-close'><FaXmark></FaXmark></button>
         </div>

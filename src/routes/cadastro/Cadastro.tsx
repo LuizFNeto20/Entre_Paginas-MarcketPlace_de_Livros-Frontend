@@ -11,18 +11,21 @@ export default function Cadastro() {
     const [login, setLogin] = useState('');
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
+    const [dataNascimento, setDataNascimento] = useState('');
 
     const handleSubmit = async (event: SyntheticEvent) => {
         event.preventDefault();
 
         try {
-            const response = await api.post('/api/usuarios', { nome, login, email, senha });
+            const data = dataNascimento ? new Date(dataNascimento) : null;
+
+            const response = await api.post('/api/usuarios', { nome, login, email, senha, dataNascimento: data });
             console.log('Usuario salvo:', response.data);
         } catch (error) {
             console.error('Erro ao salvar projeto:', error);
         }
 
-        window.location.href = '/login';
+        // window.location.href = '/login';
     };
 
     return (
@@ -43,12 +46,14 @@ export default function Cadastro() {
                         <input type="email" placeholder='E-mail' name='email' onChange={(e) => setEmail(e.target.value)} required value={email} />
                         <label htmlFor="senha">Senha</label>
                         <input type="password" placeholder='Senha' name='senha' onChange={(e) => setSenha(e.target.value)} required value={senha} />
+                        <label htmlFor="dataNascimento">Data de Nascimento</label>
+                        <input type="date" placeholder='dataNascimento' name='dataNascimento' onChange={(e) => setDataNascimento(e.target.value)} required value={dataNascimento} />
                         <button type='submit'>Criar Conta</button>
                         <p>Já possui uma conta? <Link to={"/login"}>Faça login</Link></p>
                     </form>
                 </div>
             </div>
-            <Footer></Footer>
+            {/* <Footer></Footer> */}
         </>
     );
 }

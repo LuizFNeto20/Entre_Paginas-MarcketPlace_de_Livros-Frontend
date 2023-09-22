@@ -8,7 +8,7 @@ import ContatoForm from "./ContatoForm";
 interface Usuario {
     id: string;
     login: string;
-    contatos: Array<{ telefone: string }>
+    contactsDtos: Array<{ telefone: string }>
 }
 
 interface state {
@@ -29,19 +29,19 @@ export default function Contatos() {
     }
 
     const getContatosUsuarioLogado = (usuario: Usuario) => {
-        setContatos(usuario.contatos.map((contato) => contato));
+        setContatos(usuario.contactsDtos.map((contato) => contato));
     };
 
     const getPosts = async () => {
         try {
             const response = await api.get("/api/usuarios/list");
             setUsuarios(response.data);
-            const usuarioLogado = usuarios.find((usuario) => usuario.login === isLoggedIn.login);
+
+            const usuarioLogado = response.data.find((usuario: Usuario) => usuario.login === isLoggedIn.login);
             if (usuarioLogado) {
                 setIdUsuario(usuarioLogado.id);
                 getContatosUsuarioLogado(usuarioLogado);
             }
-            console.log(contatos);
         } catch (error) {
             console.log(error);
         }
@@ -49,7 +49,7 @@ export default function Contatos() {
 
     useEffect(() => {
         getPosts();
-    }, [isLoggedIn, usuarios])
+    }, [])
 
     return (
         <div className='contato'>

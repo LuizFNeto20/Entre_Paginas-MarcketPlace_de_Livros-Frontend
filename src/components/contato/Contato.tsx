@@ -19,6 +19,7 @@ export default function Contato({ index, contato }: ContatoProps) {
         } catch (error) {
             console.error('Erro ao salvar projeto:', error);
         }
+        window.location.reload();
     };
 
     return (
