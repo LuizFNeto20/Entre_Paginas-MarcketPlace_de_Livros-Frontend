@@ -62,7 +62,7 @@ export default function Contatos() {
             }
 
             {
-                divs.map((div, index) => (
+                divs.map((_div, index) => (
                     <div key={index}>
                         <ContatoForm idUsuario={idUsuario} ></ContatoForm>
                     </div>

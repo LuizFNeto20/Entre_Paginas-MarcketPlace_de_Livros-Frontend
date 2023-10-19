@@ -9,6 +9,7 @@ import { persistor, store } from './redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
 import Perfil from './routes/perfil/Perfil.tsx';
+import PerfilComunidades from './routes/perfilComunidades/PerfilComunidades.tsx';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
   {
     path: '/perfil',
     element: <Perfil />,
+  },
+  {
+    path: '/comunidade/:comunidadeId',
+    element: <PerfilComunidades />
   }
 ]);
 

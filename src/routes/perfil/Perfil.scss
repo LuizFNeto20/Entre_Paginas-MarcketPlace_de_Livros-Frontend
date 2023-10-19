@@ -2,8 +2,8 @@
 
 .perfil {
     width: 100%;
-    height: 68.45%;
-    margin: 4% 0;
+    height: 89.64%;
+    margin: 1% 0 0 0;
     display: flex;
 
     &-principal {
@@ -11,30 +11,57 @@
         width: 20%;
         display: flex;
         flex-direction: column;
+        background-color: $header-background-opacity;
 
         &__div {
             width: 80%;
-            margin: 0 auto;
             height: 40%;
+            margin: 0 auto;
             display: flex;
+            align-items: center;
+            justify-content: center;
 
             &-image {
-                width: 50%;
+                width: 70%;
                 height: 80%;
-                margin: 0 0 0 10%;
                 background-color: $gray;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 font-size: 50px;
-                cursor: pointer;
-                box-shadow: -2px 0px 12px 0px $black-opacity;
+                box-shadow: 1px 0px 7px 0px $black-opacity;
+                position: relative;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            &-suporte {
+                display: flex;
             }
 
             &-config {
                 color: $black;
-                margin: auto 5%;
+                margin: 95% 0 0 5%;
+                cursor: pointer;
             }
+
+            // &-suporte--redes {
+            //     list-style-type: none;
+            //     display: flex;
+
+            //     li {
+            //         margin-right: 20%;
+            //         cursor: pointer;
+            //     }
+
+            //     a {
+            //         color: $black;
+            //     }
+            // }
         }
 
 
@@ -68,11 +95,8 @@
 
     &-right {
         height: 90%;
-        width: 70%;
+        width: 100%;
         border-top: 1px solid $gray;
-        margin: 0 auto;
-        padding: 2%;
-        overflow: auto;
 
         &__botao {
             width: 100%;

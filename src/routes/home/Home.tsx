@@ -5,16 +5,10 @@ import Comunidades from '../../components/comunidades/Comunidades';
 import Destaque from '../../components/destaque/Destaque';
 import Footer from '../../components/footer/Footer';
 import Header from '../../components/header/Header';
+import SideBar from '../../components/sideBar/SideBar';
 import './Home.scss';
 
 export default function Home() {
-
-  const livrosVenda = {
-    tituloCard: 'Livros a venda',
-    tituloLivro: 'Enfim, capivaras - V',
-    autor: "Luisa Geisler",
-    img: imagemTeste1,
-  }
 
   const livrosTroca = {
     tituloCard: 'Livros para trocar',
@@ -25,26 +19,28 @@ export default function Home() {
 
   return (
     <>
-      <Header nav={true}></Header>
-      <CarouselHome></CarouselHome>
+      <Header></Header>
 
-      <Comunidades></Comunidades>
+      <div className='section'>
+        <SideBar></SideBar>
 
-      <CarouselCard
-        tituloCard={livrosVenda.tituloCard}
-        tituloLivro={livrosVenda.tituloLivro}
-        autor={livrosVenda.autor}
-        img={livrosVenda.img}></CarouselCard>
+        <div className='section-right'>
+          <CarouselHome></CarouselHome>
 
-      <Destaque></Destaque>
+          <Comunidades></Comunidades>
 
-      <CarouselCard
-        tituloCard={livrosTroca.tituloCard}
-        tituloLivro={livrosTroca.tituloLivro}
-        autor={livrosTroca.autor}
-        img={livrosTroca.img}></CarouselCard>
+          <Destaque></Destaque>
 
-      <Footer></Footer>
+          <CarouselCard
+            tituloCard={livrosTroca.tituloCard}
+            tituloLivro={livrosTroca.tituloLivro}
+            autor={livrosTroca.autor}
+            img={livrosTroca.img}></CarouselCard>
+
+          <Footer></Footer>
+        </div>
+
+      </div>
     </>
   );
 }

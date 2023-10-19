@@ -1,7 +1,7 @@
 import { SyntheticEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
+import imgCadastro2 from '../../assets/images/imgCadastro2.png';
 import Footer from '../../components/footer/Footer';
-import Header from '../../components/header/Header';
 import api from '../../hooks/Data';
 import './Cadastro.scss';
 
@@ -30,9 +30,9 @@ export default function Cadastro() {
 
     return (
         <>
-            <Header></Header>
             <div className="cadastro">
                 <div className='cadastro__left'>
+                    <img src={imgCadastro2} alt="" />
                 </div>
 
                 <div className='cadastro__right'>
@@ -53,7 +53,7 @@ export default function Cadastro() {
                     </form>
                 </div>
             </div>
-            {/* <Footer></Footer> */}
+            <Footer></Footer>
         </>
     );
 }

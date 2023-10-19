@@ -36,7 +36,6 @@ export default function Login() {
 
     return (
         <>
-            <Header></Header>
             <div className="login">
                 <img src={logo} className='login__logo' alt="Imagem do logo no login" />
                 <div className='login__form'>

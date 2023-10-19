@@ -32,7 +32,7 @@ interface Endereco {
 export default function Enderecos() {
     const isLoggedIn = useSelector((state: state) => state.user);
     const [enderecos, setEnderecos] = useState<Array<{ endereco: string }>>([]);
-    const [usuarios, setUsuarios] = useState<Usuario[]>([]);
+    const [_usuarios, setUsuarios] = useState<Usuario[]>([]);
     const [idUsuario, setIdUsuario] = useState<string | null>(null);
     const [divs, setDivs] = useState<JSX.Element[]>([]);
 
@@ -75,7 +75,7 @@ export default function Enderecos() {
             }
 
             {
-                divs.map((div, index) => (
+                divs.map((_div, index) => (
                     <div key={index}>
                         <EnderecoForm idUsuario={idUsuario} ></EnderecoForm>
                     </div>

@@ -121,68 +121,13 @@
         display: flex;
     }
 
-    &__user {
-        height: 50%;
-        margin: auto 0 auto 10%;
-        padding: 7%;
-        background-color: $white;
-        border: none;
-        border-radius: 20px;
-        font-size: 15px;
-        font-weight: 600;
-        color: $header-background;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
     .message {
         font-size: 25px;
         margin: auto 10% auto 0;
         color: $white;
     }
 
-    &__cart:hover,
-    &__user:hover {
+    &__cart:hover{
         opacity: 0.5;
-    }
-}
-
-.modal-super {
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
-    top: 0;
-    z-index: 1;
-    cursor: pointer;
-}
-
-.modal {
-    width: 13%;
-    background-color: $white;
-    box-shadow: -1px 0px 16px 4px rgba(0, 0, 0, 0.021);
-    text-align: center;
-    z-index: 999;
-    position: absolute;
-    right: 8.5%;
-    top: 7.5%;
-    transition: 1s;
-
-    ul {
-        list-style: none;
-    }
-
-    &__item:hover {
-        background-color: $header-background;
-    }
-
-    a {
-        display: block;
-        width: 100%;
-        padding: 10px 0;
-        text-decoration: none;
-        color: $black;
-        font-size: 13px;
     }
 }

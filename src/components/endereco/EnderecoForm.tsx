@@ -34,7 +34,12 @@ export default function EnderecoForm({ idUsuario }: IndexId) {
                 setErro('CEP não encontrado');
             } else {
                 setErro('');
-                
+                setEndereco({
+                    uf: response.data.uf,
+                    bairro: response.data.bairro,
+                    logradouro: response.data.logradouro,
+                    localidade: response.data.localidade,
+                });
             }
         } catch (error) {
             setErro('Erro ao buscar endereço');
@@ -74,7 +79,7 @@ export default function EnderecoForm({ idUsuario }: IndexId) {
 
         window.location.reload();
     }
-    ;
+        ;
 
     useEffect(() => {
         if (cep.length === 8) {
